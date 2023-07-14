@@ -15,6 +15,7 @@
       overflow:hidden;
     }
     .mydiv img { width: 100%; height: auto;  }
+    
    body {
       display: flex;
       align-items: center;
@@ -22,11 +23,13 @@
       height: 100vh;
       background-color: #f1f1f1;
     }
+    
   .float {
     position: fixed;
     bottom: 20px;
     right: 20px;
   }
+    
   @-webkit-keyframes pulse {
       0% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -56,6 +59,60 @@
       content: "\f107";
     }
 
+  body{background-color:#000; overflow:hidden;}
+
+html body [data-ca3_iconfont="ETmodules"]::before {
+    font-family: "ETmodules";
+}
+[data-ca3_icon]::before {
+    font-weight: normal;
+    content: attr(data-ca3_icon);
+}
+
+.ca3-scroll-down-arrow {
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.ca3-scroll-down-link {
+  cursor:pointer;
+	height: 60px;
+	width: 80px;
+	margin: 0px 0 0 -40px;
+	line-height: 60px;
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	color: #FFF;
+	text-align: center;
+	font-size: 70px;
+	z-index: 100;
+	text-decoration: none;
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
+
+	-webkit-animation: ca3_fade_move_down 2s ease-in-out infinite;
+	-moz-animation:    ca3_fade_move_down 2s ease-in-out infinite;
+	animation:         ca3_fade_move_down 2s ease-in-out infinite;
+}
+
+
+/*animated scroll arrow animation*/
+@-webkit-keyframes ca3_fade_move_down {
+  0%   { -webkit-transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -webkit-transform:translate(0,20px); opacity: 0; }
+}
+@-moz-keyframes ca3_fade_move_down {
+  0%   { -moz-transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -moz-transform:translate(0,20px); opacity: 0; }
+}
+@keyframes ca3_fade_move_down {
+  0%   { transform:translate(0,-20px); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { transform:translate(0,20px); opacity: 0; }
+}
+
 </style>
 <p> </p>
 <p> </p>
@@ -76,9 +133,7 @@
   &nbsp;&nbsp;&nbsp; KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;
   </h3>
   </p>
-  <div>
-    <i class="fa fa-angle-down pulse-icon"></i>
-  </div>
+  <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
   <button class="float"> I'm a button </button>
   
 
