@@ -23,11 +23,20 @@
       background-color: #f1f1f1;
     }
   .float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
   }
-   
+  .scroll-down-div{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    color:#4d4d4d;
+    cursor:pointer;
+    height:32px;
+    font-size:18px
+  }
+  .fa-angle-down:before{content:"\f107"}
 </style>
 <p> </p>
 <p> </p>
@@ -50,7 +59,8 @@
   </p>
   <button class="float"> I'm a button </button>
 
-  <div class="scroll-down-div" onclick="window.location.href = '#feature';"><i class="fa fa-angle-down" style="-webkit-animation: pulse 1.5s infinite;animation: pulse 1.5s infinite;font-size: 28px;position:absolute;color:black;"></i></div>
+  <div class="scroll-down-div" onclick="window.location.href = '#feature';"> 
+  <i class="fa fa-angle-down" style="-webkit-animation: pulse 1.5s infinite;animation: pulse 1.5s infinite;font-size: 28px;position:absolute;color:black;"></i></div>
 <p> </p>
 <p> </p>
 <p> </p>
