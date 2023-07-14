@@ -1,7 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head> 
-<title> Yuying Lin </title>
-</head>
+  <title>Yuying Lin</title>
   <meta charset="UTF-8">
   <meta name="website" content="Evolutionary Biology">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,12 +12,16 @@
       position: relative;
       width: 150px;
       height: 150px;
-      border-radius:50%;
-      overflow:hidden;
+      border-radius: 50%;
+      overflow: hidden;
     }
-  .mydiv img { width: 100%; height: auto;  }
     
-   body {
+    .mydiv img {
+      width: 100%;
+      height: auto;
+    }
+    
+    body {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -25,87 +29,64 @@
       background-color: #f1f1f1;
     }
     
-  .float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
+    .float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
     
-  @-webkit-keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
     }
- @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: 0.5; }
-      100% { opacity: 1; }
-    }
-  .pulse-icon {
-      -webkit-animation: pulse 1.5s infinite;
-      animation: pulse 1.5s infinite;
+    
+    .pulse-icon {
+      animation: jump 2s infinite; /* Adjust the duration as needed */
       font-size: 28px;
       position: absolute;
       color: black;
     }
-  .fa {
+    
+    .fa {
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
-      font-size: 28px;
+      font-size: inherit;
       text-rendering: auto;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       justify-content: center;
     }
-  .fa-angle-down:before {
+    
+    .fa-angle-down:before {
       content: "\f107";
     }
-  .scroll-down-div {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: #4d4d4d;
-    cursor: pointer;
-    height: 32px;
-    font-size: 18px;
-}
-
-
-</style>
-<p> </p>
-<p> </p>
-<p> </p>
+    
+    .scroll-down-div {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      color: #4d4d4d;
+      cursor: pointer;
+      height: 32px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
 <body> 
-  <p> 
-  <!--image-->
   <div class="mydiv">
-  <img src="../images/IMG_2901.jpg" alt="Avatar">
+    <img src="../images/IMG_2901.jpg" alt="Avatar">
   </div>
-  </p>
-  <br/>
-
-  <p>
-  <h3> 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;「保持热爱，奔赴山海。」&nbsp;&nbsp;&nbsp; <br/>
-  <hr>
-  &nbsp;&nbsp;&nbsp; KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;
-  </h3>
-  </p>
   
-  <button class="float"> I'm a button </button>
+  <h3>「保持热爱，奔赴山海。」<br>
+  <hr>
+  KEEP LOVING, KEEP LIVING.</h3>
+  
+  <button class="float">I'm a button</button>
 
   <div class="scroll-down-div" onclick="window.location.href = '#feature';">
-    <i class="fa fa-angle-down" style="-webkit-animation: pulse 1.5s infinite;animation: pulse 1.5s infinite;font-size: 28px; position:absolute; color:black;">
-    </i>
+    <i class="fa fa-angle-down pulse-icon"></i>
   </div>
-
-<p> </p>
-<p> </p>
-<p> </p>
-
- 
 </body>
-<ul>
-  
-</ul>
 </html>
