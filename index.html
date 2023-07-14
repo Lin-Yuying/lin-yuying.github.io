@@ -14,7 +14,7 @@
       border-radius:50%;
       overflow:hidden;
     }
-    .mydiv img { width: 100%; height: auto;  }
+  .mydiv img { width: 100%; height: auto;  }
     
    body {
       display: flex;
@@ -58,6 +58,15 @@
   .fa-angle-down:before {
       content: "\f107";
     }
+  .scroll-down-div {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #4d4d4d;
+    cursor: pointer;
+    height: 32px;
+    font-size: 18px;
+}
 
 
 </style>
@@ -80,9 +89,14 @@
   &nbsp;&nbsp;&nbsp; KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;
   </h3>
   </p>
-  <a class="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
-  <button class="float"> I'm a button </button>
   
+  <button class="float"> I'm a button </button>
+
+  <div class="scroll-down-div" onclick="window.location.href = '#feature';">
+    <i class="fa fa-angle-down" style="-webkit-animation: pulse 1.5s infinite;animation: pulse 1.5s infinite;font-size: 28px;position:absolute;color:black;">
+      ::before
+    </i>
+  </div>
 
 <p> </p>
 <p> </p>
