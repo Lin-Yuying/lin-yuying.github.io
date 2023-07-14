@@ -27,6 +27,34 @@
     bottom: 20px;
     right: 20px;
   }
+  @-webkit-keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    .pulse-icon {
+      -webkit-animation: pulse 1.5s infinite;
+      animation: pulse 1.5s infinite;
+      font-size: 28px;
+      position: absolute;
+      color: black;
+    }
+    .fa {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .fa-angle-down:before {
+      content: "\f107";
+    }
 
 </style>
 <p> </p>
@@ -48,7 +76,11 @@
   &nbsp;&nbsp;&nbsp; KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;
   </h3>
   </p>
+  <div>
+    <i class="fa fa-angle-down pulse-icon"></i>
+  </div>
   <button class="float"> I'm a button </button>
+  
 
 <p> </p>
 <p> </p>
