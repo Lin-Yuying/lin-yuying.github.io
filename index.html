@@ -18,19 +18,24 @@
       position: fixed;
       left: 0px;
       top: 30%;
-      font-family: 'Source Code Pro', sans-serif;
-      color: #616A6B;
+      font-style: Courier;
+      color: ##616A6B;
     }
 
     .container h2 {
       font-size: 20px;
+      /* font-weight: bold; */
       font-weight: normal;
+      #font-family: 'Source Code Pro', sans-serif;
       color: #999;
+      #font-family: 'Menlo', sans-serif;
+      #font-family: century-gothic, CenturyGothic, sans-serif;
+      #font-family: 'Raleway', century gothic, sans-serif;
       font-weight: 500;
       letter-spacing: 3px;
     }
 
-    .container h2 .type {
+    .container h2 .type{
         color: black;
       }
 
@@ -105,27 +110,25 @@
   <div class="mydiv">
     <img src="./images/IMG_2901.jpg" alt="Avatar">
   </div>
-
-  <div class="intro">
-    <h3>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;「保持热爱，奔赴山海。」&nbsp;&nbsp;&nbsp;<br>
-      <hr>
-      &nbsp;&nbsp;&nbsp;KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;</h3>
-    <div class="container">
-      <h2><span class="type"></span></h2>
-    </div>
-
-    <script src="../sources/typed.umd.js"></script>
-
-    <script>
-      var typed = new Typed(".type", {
-        strings: ['YUYING LIN.', 'A PHD student@UBC.', 'AN EVOLUTIONARY BIOLOGIST.'],
-        typeSpeed: 150,
-        loop: true,
-        backSpeed: 120
-      })
-    </script>
+  
+  <h3>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;「保持热爱，奔赴山海。」&nbsp;&nbsp;&nbsp;<br>
+  <hr>
+  &nbsp;&nbsp;&nbsp;KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;</h3>
+  <div class="container">
+    <h2> /* I AM <span class="type"> </span> */</h2>
   </div>
+
+  <script src="../sources/typed.umd.js"></script>
+
+  <script>
+    var typed = new Typed(".type", {
+      strings: ['YUYING LIN.', 'A PHD STUDENT@UBC.', 'AN EVOLUTIONARY BIOLOGIST.'],
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 120
+    })
+  </script>
 
   <div class="scroll-down-div" onclick="window.location.href = './button.html';">
     <i class="fa fa-angle-down pulse-icon"></i>
