@@ -43,18 +43,33 @@
         color: black;
       }
 
+    .top-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+    }
+    
     .mydiv {
-      display: inline-block;
-      position: relative;
       width: 150px;
       height: 150px;
       border-radius: 50%;
       overflow: hidden;
+      margin-right: 30px;  /* Space between image and text */
     }
     
     .mydiv img {
       width: 100%;
       height: auto;
+    }
+    
+    h3 {
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
     }
     
     body {
@@ -110,15 +125,19 @@
     }
   </style>
 </head>
-<body> 
-  <div class="mydiv">
-    <img src="./images/IMG_2901.jpg" alt="Avatar">
+<body>
+  <div class="top-section">
+    <div class="mydiv">
+      <img src="./images/IMG_2901.jpg" alt="Avatar">
+    </div>
+    
+    <h3>
+      「保持热爱，奔赴山海。」<br>
+      <hr>
+      KEEP LOVING, KEEP LIVING.
+    </h3>
   </div>
   
-  <h3>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;「保持热爱，奔赴山海。」&nbsp;&nbsp;&nbsp;<br>
-  <hr>
-  &nbsp;&nbsp;&nbsp;KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;</h3>
   <div class="container">
     <h2> / I AM <span class="type"> </span> /</h2>
   </div>
