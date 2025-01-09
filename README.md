@@ -1,4 +1,4 @@
-Thanks for visiting my personal website. https://lin-yuying.github.io/
+Thanks for visiting my personal website https://lin-yuying.github.io/.
 
 感谢访问我的个人网页！
 
