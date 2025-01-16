@@ -52,18 +52,19 @@
       left: 50%;
       transform: translate(-50%, -30%);
     }
-    
+
     .mydiv {
       width: 150px;
-      height: 150px;
+      aspect-ratio: 1 / 1; /* Enforces a 1:1 ratio */
       border-radius: 50%;
       overflow: hidden;
-      margin-right: 0px;  /* Space between image and text */
+      margin-right: 0px;
     }
     
-    .mydiv img {
+   .mydiv img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
     
     h3 {
