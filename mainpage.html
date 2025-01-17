@@ -36,17 +36,17 @@
     .navbar .right {
       display: flex;
       justify-content: flex-end;
-      padding-right: 80px;
+      gap: 15px; /* Add space between links */
     }
 
     .navbar a {
       color: #666;
       text-decoration: none;
       font-size: 18px;
-      padding: 10px 20px;
+      padding: 10px 15px;
       transition: all 0.3s ease;
-      display: flex; /* Makes the link a flex container */
-      align-items: center; /* Vertically centers the content within the link */
+      display: flex;
+      align-items: center;
     }
 
     .navbar a:hover {
@@ -55,15 +55,13 @@
     }
 
     .nav-image {
-      width: 50px !important;
-      height: 50px !important;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      margin-right: 10px; /* Ensures space between the image and the text */
+      margin-right: 10px;
       object-fit: cover;
       object-position: center top;
     }
-
-
 
     /* Section Styles */
     section {
@@ -73,49 +71,31 @@
       justify-content: center;
       text-align: center;
       transition: all 0.5s ease;
-    }
-
-    #myname #home, #about-me, #research, #publications, #teaching, #blog {
-      background-color: #f1f1f1;
-      color: #333;
+      padding: 20px; /* Add padding for smaller screens */
     }
 
     #about-me {
-      background-image: url('./images/pexels-fmaderebner-869258.jpg'); /* Replace with your image URL */
+      background-image: url('./images/pexels-fmaderebner-869258.jpg');
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
-      color: #black;
-      height: 100vh;
-      display: flex;
-      align-items: flex-end; /* Aligns the content to the bottom */
-      justify-content: flex-start; /* Aligns the content to the right */
-      padding-left: 650px;
-      text-align: left; /* Aligns the text to the right */
-      position: relative; /* Ensures positioning works relative to this section */
+      color: black;
+      padding-left: 650px; /* Original left padding retained */
+      text-align: left;
     }
 
     #about-me h1 {
-      margin: 0; /* Remove default margin */
-      padding: 20px; /* Optional: Add padding for spacing */
-      font-size: 20px; 
+      font-size: 20px;
+      margin: 0;
+      padding: 20px;
     }
 
-    #publications {
+    #publications, #teaching, #blog {
       padding: 20px;
       text-align: left;
     }
 
-    #publications h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-
     #research {
-      text-align: left;
-      font-size: 15px;
-    }
-    #blog {
       text-align: left;
       font-size: 15px;
     }
@@ -140,6 +120,74 @@
         transform: translateY(0);
       }
     }
+
+    /* Responsive Adjustments */
+    @media (max-width: 1024px) {
+      #about-me {
+        padding-left: 10%; /* Reduce padding for tablets */
+        text-align: center; /* Center-align text for smaller screens */
+      }
+
+      #about-me h1 {
+        font-size: 18px; /* Slightly smaller text size */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column; /* Stack navbar for smaller screens */
+        padding: 10px;
+      }
+
+      .navbar .right {
+        justify-content: center;
+        flex-wrap: wrap; /* Allow links to wrap */
+        gap: 10px;
+        padding-right: 0;
+      }
+
+      .nav-image {
+        width: 40px; /* Reduce logo size for smaller screens */
+        height: 40px;
+      }
+
+      section {
+        padding: 10px;
+      }
+
+      #about-me {
+        padding-left: 5%;
+      }
+
+      #research, #publications, #teaching, #blog {
+        font-size: 14px; /* Adjust font size for better readability */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar a {
+        font-size: 14px; /* Reduce navbar link font size for smaller devices */
+        padding: 8px;
+      }
+
+      .nav-image {
+        width: 30px;
+        height: 30px;
+      }
+
+      #about-me {
+        padding-left: 0; /* Remove left padding entirely */
+        text-align: center; /* Center align content */
+      }
+
+      #about-me h1 {
+        font-size: 16px; /* Smaller font size for phones */
+      }
+
+      #publications, #teaching, #blog, #research {
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -148,7 +196,7 @@
   <div class="navbar">
     <div class="left">
       <a href="./index.html">
-        <img src="./images/IMG_2901.jpg" class="nav-image"> 
+        <img src="./images/IMG_2901.jpg" class="nav-image">
         Yuying Lin
       </a>
     </div>
@@ -166,14 +214,15 @@
     <h1>
       <br>Hi, I'm Yuying Lin, a PhD student trying to decode the mysteries of how genes work together to create sex chromosomes—like a genetic matchmaking service, but with fewer love letters and more complex algorithms.
 
-      <br><br><br><br><br><br><br><br>In the lab, my main skills include:
+      <br><br><br><br><br><br><br>In the lab, my main skills include:
 
-      <br><br>1. Copying data from Excel into R, while hoping the code doesn't crash my computer (or my spirit).
+      <br><br>1. Writing Python code, hoping it runs without asking for a tea break and praying that the syntax doesn't turn against me.
+
       <br><br>2. Pretending to understand what "p-value" really means.
 
       <br><br>
 
-      <br><br><br>Feel free to reach out if you want to chat about evolution, genetics, or the eternal question: Why does my code work sometimes?
+      <br><br><br>Feel free to reach out if you want to chat about evolution, genetics, or the eternal question: Why does my code work sometimes? linyuying@zoology.ubc.ca
       <br>
     </h1> 
   </section>
@@ -185,10 +234,10 @@
         <br><br>I’m diving into some exciting areas like:
         <ul>
             <li>Sex Chromosome Evolution – How do those tiny sex chromosomes shape our world? 🤔</li>
-            <li>Gene Duplications – More genes, more fun, right? Or maybe a bit of chaos… 🧬</li>
-            <li>De Novo Mutations - The birth of something completely new. Talk about originality! 💥</li>
-            <li>Transposable Elements – Jumping genes? Yep, you read that right. 🤸‍♂️</li>
-            ....and who knows what else I’ll stumble upon! 🌱
+            <br><li>Gene Duplications – More genes, more fun, right? Or maybe a bit of chaos… 🧬</li>
+            <br><li>De Novo Mutations - The birth of something completely new. Talk about originality! 💥</li>
+            <br><li>Transposable Elements – Jumping genes? Yep, you read that right. 🤸‍♂️</li>
+            <br>....and who knows what else I’ll stumble upon! 🌱
         </ul>
         <br><br>(Under Construction...)     
     </h1>
@@ -205,34 +254,25 @@
 
   <section id="teaching">
     <h1>
-    While I’m teaching, I’m doing my best not to confuse my students—or myself.
+      While I’m teaching, 
+      <br>I’m doing my best not to confuse my students—or myself.
     </h1>
   </section>
 
   <section id="blog">
     <h1>
-      <br><br>When I'm not busy with research, I’m likely on GitHub, 
-      <br><br>writing 100 lines of code to fix 10, 
-      <br><br>or debating the correct ratio of Tea to hours of sleep required for optimal brain function.
+      When I'm not busy with research, 
+      <br>I’m likely on GitHub, writing 100 lines of code to fix 10, 
+      <br> or debating the correct ratio of (tea/hours of sleep) for optimal brain function.
     </h1>
   </section>
-
-
-
 
   <!-- JavaScript -->
   <script>
     function addAnimation(sectionId) {
-      // Get the section element
       const section = document.getElementById(sectionId);
-
-      // Add the "fade-in" class for animation
       section.classList.add("fade-in");
-
-      // Remove the class after animation ends to allow re-triggering
-      setTimeout(() => {
-        section.classList.remove("fade-in");
-      }, 1000);
+      setTimeout(() => section.classList.remove("fade-in"), 1000);
     }
   </script>
 
