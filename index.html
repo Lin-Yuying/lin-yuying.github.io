@@ -3,7 +3,7 @@
 <head> 
   <title>Yuying Lin</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add responsiveness -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="website" content="Evolutionary Biology">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.cdnfonts.com/css/source-code-pro" rel="stylesheet">
@@ -11,7 +11,7 @@
   <style>
     @import url('https://fonts.cdnfonts.com/css/source-code-pro');
 
-    /* Body and Container */
+    /* General Styles */
     body {
       display: flex;
       align-items: center;
@@ -47,7 +47,7 @@
     }
 
     .container h2 .type {
-        color: black;
+      color: black;
     }
 
     /* Top Section */
@@ -83,39 +83,6 @@
     }
 
     /* Scroll-Down Icon */
-    .float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-    }
-    
-    @keyframes jump {
-      0% { transform: translateY(0); color: black; }
-      50% { transform: translateY(-15px); color: #4d4d4d; }
-      100% { transform: translateY(0); color: #4d4d4d; }
-    }
-    
-    .pulse-icon {
-      animation: jump 2s infinite;
-      font-size: 28px;
-      position: absolute;
-      color: black;
-    }
-    
-    .fa {
-      display: inline-block;
-      font: normal normal normal 28px/1 FontAwesome;
-      font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      justify-content: center;
-    }
-    
-    .fa-angle-down:before {
-      content: "\f107";
-    }
-    
     .scroll-down-div {
       position: absolute;
       bottom: 0;
@@ -125,6 +92,10 @@
       height: 32px;
       font-size: 28px;
       text-align: center;
+    }
+
+    .fa-angle-down:before {
+      content: "\f107";
     }
 
     /* Image Gallery */
@@ -213,7 +184,6 @@
         <img src="./images/github.svg" alt="github-icon">
       </a>
     </div>
-    
     <div class="gallery-item">
       <a href="https://twitter.com/your-profile" target="_blank">
         <img src="./images/twitter.svg" alt="twitter-icon">
@@ -235,7 +205,7 @@
       loop: true,
       backSpeed: 50,
       backDelay: 2000
-    })
+    });
   </script>
 
   <div class="scroll-down-div" onclick="window.location.href = './mainpage.html';">
