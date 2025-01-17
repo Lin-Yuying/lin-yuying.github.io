@@ -75,7 +75,7 @@
       transition: all 0.5s ease;
     }
 
-    #home, #about-me, #research, #publications, #teaching, #blog {
+    #myname #home, #about-me, #research, #publications, #teaching, #blog {
       background-color: #f1f1f1;
       color: #333;
     }
@@ -85,13 +85,20 @@
       background-size: cover;
       background-position: center center;
       background-attachment: fixed;
-      color: #666;
+      color: #black;
       height: 100vh;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
+      align-items: flex-end; /* Aligns the content to the bottom */
+      justify-content: flex-start; /* Aligns the content to the right */
+      padding-left: 650px;
+      text-align: left; /* Aligns the text to the right */
+      position: relative; /* Ensures positioning works relative to this section */
+    }
+
+    #about-me h1 {
+      margin: 0; /* Remove default margin */
+      padding: 20px; /* Optional: Add padding for spacing */
+      font-size: 20px; 
     }
 
     #publications {
@@ -105,6 +112,10 @@
     }
 
     #research {
+      text-align: left;
+      font-size: 15px;
+    }
+    #blog {
       text-align: left;
       font-size: 15px;
     }
@@ -142,7 +153,6 @@
       </a>
     </div>
     <div class="right">
-      </a>
       <a href="#about-me" onclick="addAnimation('about-me')">About Me</a>
       <a href="#research" onclick="addAnimation('research')">Research</a>
       <a href="#publications" onclick="addAnimation('publications')">Publications</a>
@@ -153,8 +163,18 @@
 
   <!-- Sections -->
   <section id="about-me">
-    <h1>From Sea to Summit
-      <br><br>(Under Construction...)
+    <h1>
+      <br>Hi, I'm Yuying Lin, a PhD student trying to decode the mysteries of how genes work together to create new species—like a genetic matchmaking service, but with fewer love letters.
+
+      <br><br><br><br><br><br><br>In the lab, my main skills include:
+
+      <br><br>1. Copying data from Excel into R, while hoping the code doesn't crash my computer (or my spirit).
+      <br><br>2. Running experiments that work exactly once, then failing every time after that—until I pretend I always meant to do it that way.
+
+      <br><br>
+
+      <br><br><br>Feel free to reach out if you want to chat about evolution, genetics, or the eternal question: Why does my code work sometimes?
+      <br>
     </h1> 
   </section>
 
@@ -175,7 +195,7 @@
 
   <section id="publications">
     <h1>
-      <a href="https://scholar.google.co.uk/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer; display: inline-flex; align-items: center;">
+      <a href="https://scholar.google.com/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer; display: inline-flex; align-items: center;">
         <i class="fa fa-graduation-cap" style="margin-right: 8px;"></i>
         Google Scholar
       </a>
@@ -183,8 +203,21 @@
   </section>
 
   <section id="teaching">
-    <h1>Under construction</h1>
+    <h1>
+     Under Construction
+    </h1>
   </section>
+
+  <section id="blog">
+    <h1>
+      <br><br>When I'm not busy with research, I’m likely on GitHub, 
+      <br><br>writing 100 lines of code to fix 10, 
+      <br><br>or debating the correct ratio of Tea to hours of sleep required for optimal brain function.
+    </h1>
+  </section>
+
+
+
 
   <!-- JavaScript -->
   <script>
