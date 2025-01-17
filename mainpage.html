@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuying Lin - Navigation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navigation Bar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #333;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+      border-radius: 5px;
+    }
+
+    /* Section Styles */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.5s ease;
+    }
+
+    #about-me {
+      background-color: #f1f1f1;
+      color: #999;
+    }
+
+    #research {
+      background-color: #999;
+      color: #999;
+    }
+
+    #publications {
+      background-color: #999;
+      color: #999;
+    }
+
+    #teaching {
+      background-color: #999;
+      color: #666;
+    }
+
+    /* Smooth Scroll Behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Animation Classes */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <a href="#about-me" onclick="addAnimation('about-me')">About Me</a>
+    <a href="#research" onclick="addAnimation('research')">Research</a>
+    <a href="#publications" onclick="addAnimation('publications')">Publications</a>
+    <a href="#teaching" onclick="addAnimation('teaching')">Teaching</a>
+  </div>
+
+  <!-- Sections -->
+  <section id="about-me">
+    <h1>About Me</h1>
+    <p>Hello! I'm Yuying Lin, a PhD student at UBC working in evolutionary biology.</p>
+  </section>
+
+  <section id="research">
+    <h1>Research</h1>
+    <p>My research focuses on sexually antagonistic selection in fish, computational biology, and evolutionary genetics.</p>
+  </section>
+
+  <section id="publications">
+    <h1>Publications</h1>
+    <p>Explore my academic contributions and published work in reputable journals.</p>
+  </section>
+
+  <section id="teaching">
+    <h1>Teaching</h1>
+    <p>I am passionate about teaching and mentoring students in biology and bioinformatics.</p>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    function addAnimation(sectionId) {
+      // Get the section element
+      const section = document.getElementById(sectionId);
+
+      // Add the "fade-in" class for animation
+      section.classList.add("fade-in");
+
+      // Remove the class after animation ends to allow re-triggering
+      setTimeout(() => {
+        section.classList.remove("fade-in");
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
 
