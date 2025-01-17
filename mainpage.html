@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yuying Lin - Navigation</title>
+  <title>Navigation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body {
@@ -13,15 +13,27 @@
 
     /* Navigation Bar Styles */
     .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #f1f1f1;
-      display: flex;
-      justify-content: space-around;
-      padding: 10px 0;
-      z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between; /* Ensures space between left and right items */
+    padding: 10px 20px;
+    z-index: 1000;
     }
+
+    .navbar .left {
+      display: flex;
+      justify-content: flex-start; /* Aligns "Home" to the left */
+    }
+
+    .navbar .right {
+      display: flex;
+      justify-content: flex-end; /* Aligns the other links to the right */
+      padding-right: 50px; 
+    }
+
 
     .navbar a {
       color: #666;
@@ -49,6 +61,20 @@
     #home, #about-me, #research, #publications, #teaching, #blog {
       background-color: #f1f1f1;
       color: #333;
+    }
+
+    #about-me {
+      background-image: url('./images/pexels-fmaderebner-869258.jpg'); /* Replace with your image URL */
+      background-size: cover; /* Ensures the image covers the whole section */
+      background-position: center center; /* Center the image */
+      background-attachment: fixed; /* Keeps the image fixed when scrolling */
+      color: #white; /* White text color for contrast */
+      height: 100vh; /* Ensures the section takes full height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px; /* Optional padding for some spacing */
     }
 
     /* Smooth Scroll Behavior */
@@ -79,17 +105,25 @@
 
   <!-- Navigation Bar -->
   <div class="navbar">
-    <a href="./index.html" onclick="addAnimation('about-me')">Home</a>
+  <div class="left">
+    <a href="./index.html" onclick="addAnimation('about-me')">
+      <i class="fa fa-home"></i> Home
+    </a>
+  </div>
+  <div class="right">
     <a href="#about-me" onclick="addAnimation('about-me')">About Me</a>
     <a href="#research" onclick="addAnimation('research')">Research</a>
     <a href="#publications" onclick="addAnimation('publications')">Publications</a>
     <a href="#teaching" onclick="addAnimation('teaching')">Teaching</a>
     <a href="#blog" onclick="addAnimation('teaching')">Blog</a>
+
   </div>
+</div>
+
 
   <!-- Sections -->
   <section id="about-me">
-    <h1> Under construction</h1> 
+    <h1>From Sea to Summit</h1> 
     <p></p>
   </section>
 
