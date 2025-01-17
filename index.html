@@ -3,12 +3,24 @@
 <head> 
   <title>Yuying Lin</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add responsiveness -->
   <meta name="website" content="Evolutionary Biology">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.cdnfonts.com/css/source-code-pro" rel="stylesheet">
   
   <style>
     @import url('https://fonts.cdnfonts.com/css/source-code-pro');
+
+    /* Body and Container */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f1f1f1;
+      margin: 0;
+    }
+
     .container {
       width: 100%;
       height: 100%;
@@ -34,10 +46,11 @@
       position: absolute;
     }
 
-    .container h2 .type{
+    .container h2 .type {
         color: black;
     }
 
+    /* Top Section */
     .top-section {
       display: flex;
       align-items: center;
@@ -50,13 +63,13 @@
 
     .mydiv {
       width: 150px;
-      aspect-ratio: 1 / 1; /* Enforces a 1:1 ratio */
+      aspect-ratio: 1 / 1; /* Maintain square ratio */
       border-radius: 50%;
       overflow: hidden;
       margin-right: 0px;
     }
     
-   .mydiv img {
+    .mydiv img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -68,15 +81,8 @@
       font-size: 18px;
       line-height: 1.6;
     }
-    
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #f1f1f1;
-    }
-    
+
+    /* Scroll-Down Icon */
     .float {
       position: fixed;
       bottom: 20px;
@@ -90,7 +96,7 @@
     }
     
     .pulse-icon {
-      animation: jump 2s infinite; /* Adjust the duration as needed */
+      animation: jump 2s infinite;
       font-size: 28px;
       position: absolute;
       color: black;
@@ -121,19 +127,19 @@
       text-align: center;
     }
 
-    /* New Section for Series of Images */
+    /* Image Gallery */
     .image-gallery {
       position: relative;
       display: flex;
       justify-content: flex-start;
-      gap: 20px; /* Adjust spacing between items */
+      gap: 20px; /* Spacing between items */
       padding-left: 150px;
       margin-top: 35px;
     }
 
     .image-gallery .gallery-item {
-      width: 30px;  /* Increase size of the circular images */
-      height: 30px; /* Make height equal to width for circular shape */
+      width: 30px; /* Circular icons */
+      height: 30px; 
       border-radius: 50%;
       overflow: hidden;
     }
@@ -144,9 +150,39 @@
       object-fit: cover;
     }
 
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .top-section {
+        flex-direction: column;
+        transform: translate(-50%, -50%);
+      }
 
+      .image-gallery {
+        justify-content: center;
+        padding-left: 0;
+      }
+    }
 
+    @media (max-width: 480px) {
+      .mydiv {
+        width: 120px;
+        height: 120px;
+      }
 
+      .image-gallery {
+        gap: 10px;
+      }
+
+      .image-gallery .gallery-item {
+        width: 25px;
+        height: 25px;
+      }
+
+      h3 {
+        font-size: 14px;
+        text-align: center; /* Center text for smaller screens */
+      }
+    }
   </style>
 </head>
 <body>
@@ -166,29 +202,28 @@
     <h2> / I AM <span class="type"> </span> /</h2>
   </div>
 
-<div class="image-gallery">
+  <div class="image-gallery">
     <div class="gallery-item">
-    <a href="https://scholar.google.co.uk/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank">
-      <img src="./images/icons8-google-scholar-500.svg" alt="googlescholar-icon">
-    </a>
+      <a href="https://github.com/Lin-Yuying" target="_blank">
+        <img src="./images/github.svg" alt="github-icon">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://scholar.google.com/citations?user=your-profile-id" target="_blank">
+        <img src="./images/icons8-google-scholar-500.svg" alt="googlescholar-icon">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://twitter.com/your-profile" target="_blank">
+        <img src="./images/twitter.svg" alt="twitter-icon">
+      </a>
+    </div>
+    <div class="gallery-item">
+      <a href="https://www.instagram.com/your-profile" target="_blank">
+        <img src="./images/instagram.svg" alt="instagram-icon">
+      </a>
+    </div>
   </div>
-  <div class="gallery-item">
-    <a href="https://github.com/Lin-Yuying" target="_blank">
-      <img src="./images/github.svg" alt="github-icon">
-    </a>
-  </div>
-  <div class="gallery-item">
-    <a href="https://twitter.com/your-profile" target="_blank">
-      <img src="./images/twitter.svg" alt="twitter-icon">
-    </a>
-  </div>
-  <div class="gallery-item">
-    <a href="https://www.instagram.com/your-profile" target="_blank">
-      <img src="./images/instagram.svg" alt="instagram-icon">
-    </a>
-  </div>
-</div>
-
 
   <script src="../sources/typed.umd.js"></script>
 
