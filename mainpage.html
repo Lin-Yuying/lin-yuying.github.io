@@ -100,6 +100,19 @@
       margin: 0;
       padding: 20px;
       font-weight: 500;
+      position: relative; /* Required for positioning the pseudo-element */
+      z-index: 1; /* Ensures text is on top of the overlay */
+    }
+
+    #about-me h1::before {
+      content: ''; /* Empty content */
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.7); /* White with 60% opacity */
+      z-index: -1; /* Places the overlay behind the text */
     }
 
     #publications, #teaching, #blog {
