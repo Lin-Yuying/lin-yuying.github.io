@@ -57,13 +57,16 @@
 
     .mydiv {
       width: 150px;
-      aspect-ratio: 1 / 1;
+      padding-top: 150px; /* Maintain a 1:1 aspect ratio */
       border-radius: 50%;
       overflow: hidden;
-      margin-right: 0px;
+      position: relative; /* Required for absolutely positioned children */
     }
-
+    
     .mydiv img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
