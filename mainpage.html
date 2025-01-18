@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Sea to Summit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Courier New", monospace;
+    }
+
+    /* Navigation Bar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+      backdrop-filter: blur(10px); /* Creates the blur effect */
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Optional: Adds a subtle border at the bottom */
+    }
+
+    .navbar .left {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      padding-right:30px;
+    }
+
+    .navbar a {
+      color: #666;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a:hover {
+      background-color: #777;
+      border-radius: 5px;
+    }
+
+    .nav-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+
+    /* The navbar links by default are horizontal */
+    #navbar-links {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    /* Hamburger Icon */
+    .navbar .icon {
+      font-size: 30px;
+      cursor: pointer;
+      display: none; /* Initially hidden on larger screens */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 800px) {
+      /* Display the hamburger icon */
+      .navbar .icon {
+        display: block;
+      }
+
+      /* Hide the navbar links by default */
+      #navbar-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+        position: absolute;
+        top: 50px;
+        right: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      #navbar-links a {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+      }
+
+      /* When menu is visible, display the links as a column */
+      #navbar-links.show {
+        display: flex;
+      }
+    }
+
+    /* Section Styles */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.5s ease;
+      padding: 20px;
+    }
+
+    #about-me {
+      background-image: url('./images/pexels-fmaderebner-869258.jpg');
+      background-size: cover;
+      background-position: center center;
+      color: black;
+      padding: 200px;
+      text-align: left;
+    }
+
+    #about-me h1 {
+      font-size: 20px;
+      margin: 0;
+      padding: 20px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    #about-me h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+
+    #research {
+      text-align: left;
+      font-size: 15px;
+    }
+
+    #research h1{
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    #publications h1{
+      font-size: 20px;
+      font-weight: 500;
+    }
+    #teaching h1{
+      font-size: 20px;
+      font-weight: 500;
+    }
+    #blog h1{
+      font-size: 20px;
+      font-weight: 500;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="left">
+      <a href="./index.html">
+        <img src="./images/IMG_2901.jpg" class="nav-image">
+        Yuying Lin
+      </a>
+    </div>
+    <div class="right">
+      <!-- Hamburger Icon -->
+      <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+      <!-- Navbar Links -->
+      <div id="navbar-links">
+        <a href="#about-me" onclick="addAnimation('about-me')">About Me</a>
+        <a href="#research" onclick="addAnimation('research')">Research</a>
+        <a href="#publications" onclick="addAnimation('publications')">Publications</a>
+        <a href="#teaching" onclick="addAnimation('teaching')">Teaching</a>
+        <a href="#blog" onclick="addAnimation('blog')">Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sections -->
+  <section id="about-me">
+    <h1>
+      Hi, I'm Yuying Lin, a PhD student trying to decode the mysteries of how genes work together to create sex chromosomes, like a genetic matchmaking service, but with fewer love letters and more complex algorithms.
+      <br><br><br><br><br>In the lab, my skills include:
+      <br>1. Writing Python code, hoping it runs without asking for a tea break and praying that the syntax doesn't turn against me.
+      <br>2. Pretending to understand what "p-value" really means.
+      <br><br><br>
+      <span style="font-weight: bold; color: black;">Keywords: Bio_Nerd</span>; 
+      <span style="font-weight: bold; color: black;">Omics_Geek</span>; 
+      <span style="font-weight: bold; color: black;">Conference_Locust</span>; 
+      <span style="font-weight: bold; color: black;">Research_Robot</span>; 
+      <span style="font-weight: bold; color: black;">Oolong_Tea-rrific_Brewmaster</span>;
+      <span style="font-weight: bold; color: black;">Crustacean_Crusher</span>; 
+      <br><br><br>Feel free to reach out if you want to chat about evolution, genetics, or the eternal question: Why does my code work sometimes? <a href="mailto:linyuying@zoology.ubc.ca">linyuying@zoology.ubc.ca</a>
+      <br><br>(Under Construction...)
+    </h1> 
+  </section>
+
+  <!-- Sections -->
+  <section id="about-me">
+    <h1>
+      <br>Hi, I'm Yuying Lin, a PhD student trying to decode the mysteries of how genes work together to create sex chromosomes, like a genetic matchmaking service, but with fewer love letters and more complex algorithms.
+
+      <br><br><br><br><br>In the lab, my skills include:
+
+      <br>1. Writing Python code, hoping it runs without asking for a tea break and praying that the syntax doesn't turn against me;
+
+      <br>2. Pretending to understand what "p-value" really means.
+
+      <br><br><br> 
+      <span style="font-weight: bold; color: black;">Keywords: Bio_Nerd</span>; 
+      <span style="font-weight: bold; color: black;">Omics_Geek</span>; 
+      <span style="font-weight: bold; color: black;">Conference_Locust</span>; 
+      <span style="font-weight: bold; color: black;">Research_Robot</span>; 
+      <span style="font-weight: bold; color: black;">Oolong_Tea-rrific_Brewmaster</span>;
+      <span style="font-weight: bold; color: black;">Crustacean_Crusher</span>; 
+
+      <br><br><br>Feel free to reach out if you want to chat about evolution, genetics, or the eternal question: Why does my code work sometimes? <a href="mailto:linyuying@zoology.ubc.ca">linyuying@zoology.ubc.ca</a>
+      <br><br>(Under Construction...)
+
+      <br>
+    </h1> 
+
+  </section>
+
+  <section id="research">
+    <h1> 
+        <br><br>I am totally hooked on evolutionary biology! 🔬 
+        <br><br>But, with limited time and energy (because, you know, life), 
+        <br><br>I’m diving into some exciting areas like:
+        <ul>
+            
+            <li><span style="font-weight: bold; color: black;">Gene Duplications</span> – More genes, more fun, right? Or maybe a bit of chaos… 🧬</li>
+            <br><li><span style="font-weight: bold; color: black;">De Novo Mutations</span> - The birth of something completely new. Talk about originality! 💥</li>
+            <br><li><span style="font-weight: bold; color: black;">Transposable Elements</span> – Jumping genes? Yep, you read that right. 🤸‍♂️</li>
+            <br><li><span style="font-weight: bold; color: black;">Sex Chromosome Evolution</span> – How do those tiny sex chromosomes shape our world? 🤔</li>
+            <br>....and who knows what else I’ll stumble upon! 🌱
+        </ul>
+        <br><br>(Under Construction...)     
+    </h1>
+  </section>
+
+  <section id="publications">
+    <h1>
+      <a href="https://scholar.google.com/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer; display: inline-flex; align-items: center;">
+        <i class="fa fa-graduation-cap" style="margin-right: 8px;"></i>
+        Google Scholar
+      </a>
+    </h1>
+  </section>
+
+  <section id="teaching">
+    <h1>
+      While I’m teaching, 
+      <br><br>I’m doing my best not to <del>confuse</del> my students and/or myself.
+      <br><br>(Under Construction...)
+    </h1>
+  </section>
+
+  <section id="blog">
+    <h1>
+      When I'm not busy with research, 
+      <br><br> I’m likely on GitHub, writing 100 lines of code to fix 10, 
+      <br><br> or debating the perfect α = ratio of (tea/hrs of sleep) for optimal brain function.
+      <br><br> Well, you know that, right? It's always more tea 🍵.
+      <br><br>(Under Construction...)
+    </h1>
+  </section>
+
+
+  <!-- JavaScript to toggle the menu -->
+  <script>
+    function toggleMenu() {
+      var links = document.getElementById("navbar-links");
+      links.classList.toggle("show"); // Toggle the "show" class to display the menu
+    }
+
+    function addAnimation(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.classList.add("fade-in");
+      setTimeout(() => section.classList.remove("fade-in"), 1000);
+    }
+  </script>
+</body>
+</html>
