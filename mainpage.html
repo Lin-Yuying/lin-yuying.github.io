@@ -44,7 +44,7 @@
       color: #666;
       text-decoration: none;
       font-size: 18px;
-      padding: 10px 15px;
+      padding: 1px 15px;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
@@ -128,9 +128,16 @@
       background-image: url('./images/pexels-fmaderebner-869258.jpg');
       background-size: cover;
       background-position: center center;
+      background-attachment: fixed; /* 使背景固定 */
       color: black;
-      padding: 200px;
-      text-align: left;
+      padding: 0; /* 移除多余的填充 */
+      text-align: left; /* 文本居中对齐 */
+      display: flex; /* 使用 Flexbox */
+      justify-content: center; /* 水平居中 */
+      align-items: center; /* 垂直居中 */
+      height: 100vh; /* 设置区域高度为整个视口高度 */
+      padding-right: 200px;
+      padding-left: 200px;
     }
 
     #about-me h1 {
@@ -152,6 +159,7 @@
       background-color: rgba(255, 255, 255, 0.85);
       z-index: -1;
     }
+
 
     #research {
       text-align: left;
