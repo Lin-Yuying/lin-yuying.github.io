@@ -12,9 +12,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      flex-direction: column;
+      min-height: 101vh; /* Ensure the page is tall enough to require scrolling */
       background-color: #f1f1f1;
       margin: 0;
+      transition: opacity 0.5s ease; /* Animation for fade-in effect */
     }
 
     .container {
@@ -23,27 +25,17 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
       font-style: Courier;
       color: #616A6B;
     }
 
     .container h2 {
       font-size: 20px;
-      font-weight: normal;
       color: #999;
       font-weight: 500;
       letter-spacing: 3px;
       top: 65%;
       position: absolute;
-    }
-
-    .container h2 .type {
-      color: black;
     }
 
     /* Top Section */
@@ -59,26 +51,26 @@
 
     .mydiv {
       width: 150px;
-      aspect-ratio: 1 / 1; /* Maintain square ratio */
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
       overflow: hidden;
       margin-right: 0px;
     }
-    
+
     .mydiv img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center top;
     }
-    
+
     h3 {
       text-align: left;
       font-size: 18px;
       line-height: 1.6;
     }
 
-    /* Scroll-Down Icon */
+   /* Scroll-Down Icon */
     .scroll-down-div {
       position: absolute;
       bottom: 20px;
@@ -108,16 +100,18 @@
 
     /* Image Gallery */
     .image-gallery {
-      position: relative;
       display: flex;
-      justify-content: flex-start;
+      justify-content: center; /* Center the items horizontally */
+      align-items: top; /* Top the items vertically */
       gap: 20px; /* Spacing between items */
-      padding-left: 135px;
-      margin-top: 25px;
+      margin-top: 0px; /* Added margin to give space from the top */
+      width: 100%; /* Ensures the gallery takes up the full width */
+      padding-left: 150px;
+
     }
 
     .image-gallery .gallery-item {
-      width: 30px; /* Circular icons */
+      width: 30px;
       height: 30px; 
       border-radius: 50%;
       overflow: hidden;
@@ -129,16 +123,26 @@
       object-fit: cover;
     }
 
+    /* Smooth Scroll Animation */
+    .scrolling-animation {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       .top-section {
         flex-direction: column;
         transform: translate(-50%, -50%);
       }
-
       .image-gallery {
         justify-content: center;
-        padding-left: 0;
+        padding-right: 150px !important;
+        padding-top: 150px !important;
       }
     }
 
@@ -150,21 +154,18 @@
 
       .image-gallery {
         gap: 10px;
-      }
-
-      .image-gallery .gallery-item {
-        width: 25px;
-        height: 25px;
+        padding-right: 50px !important;
+        padding-top: 150px !important;
       }
 
       h3 {
         font-size: 14px;
-        text-align: center; /* Center text for smaller screens */
+        text-align: center;
       }
     }
   </style>
 </head>
-<body>
+<body class="scrolling-animation">
   <div class="top-section">
     <div class="mydiv">
       <img src="./images/IMG_2901.jpg" alt="Avatar">
@@ -181,6 +182,7 @@
     <h2> / I AM <span class="type"> </span> /</h2>
   </div>
 
+  <!-- Image Gallery centered below the text -->
   <div class="image-gallery">
     <div class="gallery-item">
       <a href="https://scholar.google.com/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank">
@@ -209,8 +211,6 @@
     </div>
   </div>
 
-  <script src="../sources/typed.umd.js"></script>
-
   <script>
     var typed = new Typed(".type", {
       strings: ['YUYING LIN.', 'A PHD STUDENT@UBC.', 'A COMPUTATIONAL BIOLOGIST.', 'AN EVOLUTIONARY BIOLOGIST.' ],
@@ -224,5 +224,32 @@
   <div class="scroll-down-div" onclick="window.location.href = './mainpage.html';">
     <i class="fa fa-angle-down pulse-icon"></i>
   </div>
+  
+  <script>
+    // Function to check if the user has scrolled to 90% of the page
+    function checkScrollPosition() {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Log current scroll position for debugging
+      console.log("Current Scroll Position:", scrollPosition);
+      console.log("Document Height:", documentHeight);
+
+      // Check if the scroll position has passed 90% of the page height
+      if (scrollPosition >= documentHeight * 0.9) { // 90% of the page height
+        console.log("User has reached 90% of the page. Redirecting...");
+        // Redirect to mainpage.html when the user reaches 90% of the page
+        window.location.href = './mainpage.html';
+      }
+    }
+
+    // Add scroll event listener
+    window.addEventListener('scroll', checkScrollPosition);
+
+    // Animation: When page loads, show the page content with fade-in effect
+    window.onload = function () {
+      document.body.classList.add('visible');
+    };
+  </script>
 </body>
 </html>
