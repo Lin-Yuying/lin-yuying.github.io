@@ -79,12 +79,16 @@
     /* Image Gallery */
     .image-gallery {
       display: flex;
-      position: absolute;
-      justify-content: center; /* Center the items horizontally */
+      position: absolute; /* Use absolute positioning */
+      flex-direction: column; /* Stack items vertically */
+      justify-content: center; /* Center items vertically inside the container */
+      align-items: flex-end; /* Align the items to the right */
       gap: 20px; /* Spacing between items */
-      margin-top: 20px; /* Adjust the margin if needed */
-      width: 100%; /* Ensures the gallery takes up the full width */
-      top: 80% !important; /* Moves the whole gallery to 80% of the container height */
+      width: auto; /* Ensure gallery width adjusts to content */
+      padding-bottom: 50px;
+      top: 50%; /* Move the gallery to the vertical center */
+      right: 20px; /* Align the gallery to the right edge */
+      transform: translateY(-50%); /* Center the gallery vertically */
     }
 
     .image-gallery .gallery-item {
