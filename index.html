@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="website" content="Evolutionary Biology">
+  <title> YUYING LIN ⛰️🌊 </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="./images/lion_1f981.png" type="image/png">
+  
+  <style>
+    /* General Styles */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 120vh; /* Ensure the page is tall enough to require scrolling */
+      background-color: #f1f1f1;
+      margin: 0;
+      transition: opacity 0.5s ease; /* Animation for fade-in effect */
+    }
+
+    .type, .typed {
+      color: black !important;
+    }
+    
+    .container {
+      width: 100%;
+      height: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      font-style: Courier;
+      color: #616A6B;
+    }
+
+    .container h2 {
+      font-size: 20px;
+      color: #999;
+      font-weight: 500;
+      letter-spacing: 3px;
+      top: 65%;
+      position: absolute;
+    }
+
+    /* Top Section */
+    .top-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 38%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+    }
+
+    .mydiv {
+      width: 150px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 0px;
+    }
+
+    .mydiv img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    
+    h3 {
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    /* Image Gallery */
+    .image-gallery {
+      display: flex;
+      position: absolute; /* Use absolute positioning */
+      flex-direction: column; /* Stack items vertically */
+      justify-content: center; /* Center items vertically inside the container */
+      align-items: flex-end; /* Align the items to the right */
+      gap: 20px; /* Spacing between items */
+      width: auto; /* Ensure gallery width adjusts to content */
+      padding-bottom: 50px;
+      top: 48%; /* Move the gallery to the vertical center */
+      right: 25px; /* Align the gallery to the right edge */
+      transform: translateY(-48%); /* Center the gallery vertically */
+    }
+
+    .image-gallery .gallery-item {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative; /* Ensure items are positioned in the flex container */
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* No need to apply top: 80% here */
+    }
+
+
+    /* Scroll-Down Icon */
+    .scroll-down-div {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      color: #4d4d4d;
+      cursor: pointer;
+      height: 32px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    .pulse-icon {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translateY(0); color: black;
+      }
+      50% {
+        transform: translateY(15px); color: #4d4d4d; /* Move down */
+      }
+      100% {
+        transform: translateY(0); color: #4d4d4d;
+      }
+    }
+
+    /* Smooth Scroll Animation */
+    .scrolling-animation {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+
+    /* Navigation Bar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px;
+      z-index: 9999; /* Increase z-index to make sure it's on top of other elements */
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: "Courier New", monospace;
+      font-weight: 520;
+      background-color: #f1f1f1;
+    }
+
+    .navbar .left {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      padding-right:30px;
+    }
+
+    .navbar a {
+      color: #666;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 3px 15px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a:hover {
+      background-color: #f1f1f1;
+      border-radius: 5px;
+    }
+
+    .nav-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* The navbar links by default are horizontal */
+    #navbar-links {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    /* Hamburger Icon */
+    .navbar .icon {
+      font-size: 30px;
+      cursor: pointer;
+      display: none; /* Initially hidden on larger screens */
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 300px) {
+      #about-me {
+        background-size: contain; /* Ensures the whole image fits the smaller screen */
+        background-position: center center; /* Centers the image for better visibility */
+        background-attachment: scroll; /* Allows the image to scroll naturally */
+        padding: 20px; /* Adjust padding to avoid overcrowding */
+        height: auto; /* Allows the height to adjust dynamically based on content */
+      }
+
+      #about-me h1 {
+        font-size: 12px !important;
+        padding-top: 80px;
+        text-align: center;
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+      }
+
+      #research h1 {
+        font-size: 15px !important;
+        padding-top: 50px !important;
+        text-align: left; 
+      }
+
+      /* Display the hamburger icon */
+      .navbar .icon {
+        display: block;
+      }
+
+      /* Hide the navbar links by default */
+      #navbar-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+        position: absolute;
+        top: 50px;
+        right: 0;
+        left: 0;
+        z-index: 1;
+      }
+
+      #navbar-links a {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+      }
+
+      /* When menu is visible, display the links as a column */
+      #navbar-links.show {
+        display: flex;
+      }
+    }
+
+    /* Section Styles */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.5s ease;
+      padding: 20px;
+    }
+
+    #about-me, #research, #publications, #teaching, #blog {
+      padding-left: 150px;
+      padding-right: 150px;
+      text-align: left;
+      font-family: "Courier New", monospace;
+    }
+
+
+    #about-me {
+      background-image: url('./images/pexels-fmaderebner-869258.jpg');
+      background-size: cover; /* Ensures the image covers the entire area */
+      background-position: center; /* Centers the image */
+      background-attachment: fixed; /* Optional: Locks the image while scrolling */
+      color: black;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      height: 100vh;
+      padding-right: 100px;
+      padding-left: 100px;
+    }
+
+    #about-me h1 {
+      font-size: 20px;
+      margin: 0;
+      padding: 20px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1;
+    }
+
+    #about-me h1::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+
+    #research {
+      text-align: left;
+      font-size: 15px;
+    }
+
+    #research h1 {
+      font-size: 20px;
+      font-weight: 500;
+
+    }
+
+    #publications h1 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    #teaching h1 {
+      font-size: 20px;
+      font-weight: 500;
+
+    }
+
+    #blog h1 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  </style>
+</head>
+  
+<body class="scrolling-animation">
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="left">
+      <a href="#main">
+        <img src="./images/IMG_2901.jpg" class="nav-image">
+        Yuying Lin
+      </a>
+    </div>
+    <div class="right">
+      <!-- Hamburger Icon -->
+      <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">&#9776;</a>
+      <!-- Navbar Links -->
+      <div id="navbar-links">
+        <a href="#about-me" onclick="addAnimation('about-me')">About Me</a>
+        <a href="#research" onclick="addAnimation('research')">Research</a>
+        <a href="#publications" onclick="addAnimation('publications')">Publications</a>
+        <a href="#teaching" onclick="addAnimation('teaching')">Teaching</a>
+        <a href="#blog" onclick="addAnimation('blog')">Blog</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sections -->
+    <section id="main">
+      <div class="top-section">
+      <div class="mydiv">
+        <img src="./images/IMG_2901.jpg" alt="Avatar">
+      </div>
+      
+      <h3>
+        &nbsp;&nbsp;&nbsp;「保持热爱，奔赴山海。」⛰️🌊&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        <hr>
+        &nbsp;&nbsp;&nbsp;&nbsp;KEEP LOVING, KEEP LIVING.&nbsp;&nbsp;&nbsp;&nbsp;
+      </h3>
+    </div>
+
+    <!-- Image Gallery centered below the text -->
+    <div class="image-gallery">
+      <div class="gallery-item">
+        <a href="https://scholar.google.com/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank">
+          <img src="./images/google.svg" alt="googlescholar-icon">
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://github.com/Lin-Yuying" target="_blank">
+          <img src="./images/github.svg" alt="github-icon">
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://x.com/Y_Lin_Evo" target="_blank">
+          <img src="./images/twitter.svg" alt="twitter-icon">
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://www.instagram.com/your-profile" target="_blank">
+          <img src="./images/instagram.svg" alt="instagram-icon">
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="mailto:linyuying@zoology.ubc.ca" target="_blank">
+          <img src="./images/email.png" alt="email-icon">
+        </a>
+      </div>
+      <div class="gallery-item">
+        <a href="https://orcid.org/0000-0001-7057-5588" target="_blank">
+          <img src="./images/orcid.svg" alt="orcid-icon">
+        </a>
+      </div>
+    </div>
+    
+    <div class="container">
+      <h2> / I AM <span class="type"> </span> /</h2>
+    </div>
+    <script src="./sources/typed.umd.js"></script>
+    <script>
+      var typed = new Typed(".type", {
+        strings: ['YUYING LIN.', 'A PHD STUDENT@UBC.', 'A COMPUTATIONAL BIOLOGIST.', 'AN EVOLUTIONARY BIOLOGIST.' ],
+        typeSpeed: 50,
+        loop: true,
+        backSpeed: 50,
+        backDelay: 2000
+      });
+    </script>
+
+    <div class="scroll-down-div" onclick="window.location.href = '#about-me';">
+      <i class="fa fa-angle-down pulse-icon"></i>
+    </div>
+  </section> 
+
+  <section id="about-me">
+    <h1>
+      <br>Hi, I'm Yuying Lin, a PhD student trying to decode the mysteries of how genes work together to create sex chromosomes, like a genetic matchmaking service, but with fewer love letters and more complex algorithms.
+
+      <br><br><br><br>In the lab, my skills include:
+      <br>
+      <br>1. Writing Python code, hoping it runs without asking for a tea break and praying that the syntax doesn't turn against me;
+      <br>
+      <br>2. Pretending to understand what "p-value" really means.
+
+      <br><br><br> 
+      <span style="font-weight: bold; color: black;">Keywords: Bio_Nerd</span>; 
+      <span style="font-weight: bold; color: black;">Omics_Geek</span>; 
+      <span style="font-weight: bold; color: black;">Conference_Locust</span>; 
+      <span style="font-weight: bold; color: black;">Research_Robot</span>; 
+      <span style="font-weight: bold; color: black;">Crustacean_Crusher</span>; 
+      <span style="font-weight: bold; color: black;">Oolong_Tea-rrific_Brewmaster</span>
+      
+
+      <br><br><br>Feel free to reach out if you want to chat about evolution, genetics, or the eternal question: Why does my code work sometimes? <a href="mailto:linyuying@zoology.ubc.ca">linyuying@zoology.ubc.ca</a>
+      <br><br>(Under Construction...)
+
+      <br><br>
+    </h1> 
+  </section>
+
+  <section id="research">
+    <h1> 
+        <br><br>I’m generally interested in evolutionary biology. 🔬 
+        But, with limited time and energy (because, you know, life), 
+        I’m diving into some exciting areas like:
+        <ul>
+            
+            <li><span style="font-weight: bold; color: black;">Gene Duplications</span> – More genes, more fun, right? Or maybe a bit of chaos… 🧬</li>
+            <br><li><span style="font-weight: bold; color: black;">De Novo Mutations</span> - The birth of something completely new. Talk about originality! 💥</li>
+            <br><li><span style="font-weight: bold; color: black;">Transposable Elements</span> – Jumping genes? Yep, you read that right. 🤸‍♂️</li>
+            <br><li><span style="font-weight: bold; color: black;">Sex Chromosome Evolution</span> – How do those chromosomes shape our world? 🤔</li>
+            <br>....and who knows what else I’ll stumble upon! 🌱
+        </ul>
+        <br><br>(Under Construction...)     
+    </h1>
+  </section>
+
+  <section id="publications">
+    <h1>
+      <a href="https://scholar.google.com/citations?hl=en&user=VT0LYbkAAAAJ" target="_blank" style="text-decoration: none; color: inherit; cursor: pointer; display: inline-flex; align-items: center;">
+        <i class="fa fa-graduation-cap" style="margin-right: 8px;"></i>
+        Google Scholar
+      </a>
+      <br><br>
+      I think my papers’ citations are on vacation... off exploring uncharted territories 🌴✈️
+      <div style="line-height: 1.5;">
+      <br>
+      <b>if you_like_my_papers:</b> 
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;# I know you absolutely do
+      <br>
+      <b>&nbsp;&nbsp;&nbsp;&nbsp;ABSOLUTELY cite them, or we can’t be friends</b>
+      <br><b>elif neutral:</b>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;# Don’t make me beg
+      <br><b>&nbsp;&nbsp;&nbsp;&nbsp;cite them anyway, do me a favor to boost my h-index</b>
+      <br><b>else:</b>
+      <br>&nbsp;&nbsp;&nbsp;&nbsp# Really?
+
+      <br><b>&nbsp;&nbsp;&nbsp;&nbsp;think again, reconsider your life choice and start over
+    </b>
+    </div>
+
+      <br><br><br>
+      (Under Construction...)
+    </h1>
+  </section>
+
+  <section id="teaching">
+    <h1>
+      While I’m teaching, I’m doing my best not to <del>confuse</del> my students and/or myself.
+      <br><br><br><br>(Under Construction...)
+    </h1>
+  </section>
+
+  <section id="blog">
+    <h1>
+      When I’m not busy with research, I’m likely on GitHub, writing 100 lines of code to fix 10, or debating the following ratio for optimal brain function:
+      <br><br> 
+      <div style="text-align: center; padding-right: 30px;">
+        <span style="font-weight: bold; color: black;">perfect α = ratio of (tea/hrs of sleep)</span>
+      </div>
+      <br><br> Well, you know that, right? It’s always more tea 🍵.
+      <br><br><br><br>(Under Construction...)
+    </h1>
+  </section>
+
+
+
+  <script>
+    // Function to check if the user has scrolled to 90% of the page
+    function checkScrollPosition() {
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // if (scrollPosition >= documentHeight * 0.9) { // 90% of the page height
+      //   window.location.href = '#about-me';
+      // }
+    }
+
+    window.addEventListener('scroll', checkScrollPosition);
+
+    window.onload = function () {
+      document.body.classList.add('visible');
+      
+      // Function to update navbar visibility based on the hash
+      function updateNavbarVisibility() {
+        if (window.location.hash === '#main' || window.location.hash === '') {
+          document.querySelector('.navbar').style.display = 'none'; // Hide navbar
+        } else {
+          document.querySelector('.navbar').style.display = 'flex'; // Show navbar
+        }
+      }
+
+      // Call this function to set the correct navbar visibility on page load
+      updateNavbarVisibility();
+
+      // Intersection Observer to update the URL hash based on the section visible
+      const observerOptions = {
+        threshold: 0.5  // Trigger when 50% of the section is visible
+      };
+
+      // A set to track the sections we've already processed
+      const processedSections = new Set();
+
+      // Callback function to handle when a section is in view
+      const observerCallback = (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            
+            // Update the URL hash if a section is visible, but only if it hasn't been processed yet
+            if (!processedSections.has(sectionId)) {
+              window.location.hash = `#${sectionId}`;
+              processedSections.add(sectionId); // Mark this section as processed
+            }
+
+            // Show or hide the navbar based on the section visible
+            if (sectionId !== 'main') {
+              document.querySelector('.navbar').style.display = 'flex';
+            } else {
+              document.querySelector('.navbar').style.display = 'none';
+            }
+          }
+        });
+      };
+
+      // Initialize the intersection observer
+      const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+      // Observe each section for visibility
+      observer.observe(document.getElementById('about-me'));
+      observer.observe(document.getElementById('research'));
+      observer.observe(document.getElementById('publications'));
+      observer.observe(document.getElementById('teaching'));
+      observer.observe(document.getElementById('blog'));
+
+      // Add event listener to handle navbar links without jumping
+      const navbarLinks = document.querySelectorAll('.navbar a');
+      
+      navbarLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent default scroll behavior when clicking a link
+
+          const targetSection = document.querySelector(this.getAttribute('href'));
+          
+          // Manually scroll to the target section
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+
+          // Update the hash manually
+          window.location.hash = this.getAttribute('href');
+        });
+      });
+
+      // Add special behavior for the 'Main' link to immediately hide the navbar
+      const mainLink = document.querySelector('a[href="#main"]');
+      if (mainLink) {
+        mainLink.addEventListener('click', function(event) {
+          event.preventDefault(); // Prevent default action (e.g., page reload)
+          
+          // Immediately hide the navbar when 'Main' is clicked
+          document.querySelector('.navbar').style.display = 'none';
+          
+          // Update the URL hash to #main
+          window.location.hash = '#main';
+        });
+      }
+    };
+
+
+
+    function toggleMenu() {
+      var links = document.getElementById("navbar-links");
+      links.classList.toggle("show");
+      console.log('Menu toggled!');
+    }
+
+    function addAnimation(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.classList.add("fade-in");
+      setTimeout(() => section.classList.remove("fade-in"), 1000);
+    }
+  </script>
+
+</body>
+</html>
