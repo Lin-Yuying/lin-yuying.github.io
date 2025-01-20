@@ -555,120 +555,87 @@
 
 
 
-  <script>
-    // Function to check if the user has scrolled to 90% of the page
-    function checkScrollPosition() {
-      const scrollPosition = window.scrollY + window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // if (scrollPosition >= documentHeight * 0.9) { // 90% of the page height
-      //   window.location.href = '#about-me';
-      // }
+<script>
+  window.onload = function () {
+    document.body.classList.add("visible");
+
+    // Function to handle navbar visibility based on visible section
+    function updateNavbarVisibility(sectionId) {
+      const navbar = document.querySelector(".navbar");
+
+      if (sectionId === "main" || sectionId === "") {
+        navbar.style.display = "none"; // Hide navbar for #main section or when no hash is set
+      } else {
+        navbar.style.display = "flex"; // Show navbar for other sections
+      }
     }
 
-    window.addEventListener('scroll', checkScrollPosition);
-
-    window.onload = function () {
-      document.body.classList.add('visible');
-      
-      // Function to update navbar visibility based on the hash
-      function updateNavbarVisibility() {
-        if (window.location.hash === '#main' || window.location.hash === '') {
-          document.querySelector('.navbar').style.display = 'none'; // Hide navbar
-        } else {
-          document.querySelector('.navbar').style.display = 'flex'; // Show navbar
-        }
-      }
-
-      // Call this function to set the correct navbar visibility on page load
-      updateNavbarVisibility();
-
-      // Intersection Observer to update the URL hash based on the section visible
-      const observerOptions = {
-        threshold: 0.5  // Trigger when 50% of the section is visible
-      };
-
-      // A set to track the sections we've already processed
-      const processedSections = new Set();
-
-      // Callback function to handle when a section is in view
-      const observerCallback = (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            
-            // Update the URL hash if a section is visible, but only if it hasn't been processed yet
-            if (!processedSections.has(sectionId)) {
-              window.location.hash = `#${sectionId}`;
-              processedSections.add(sectionId); // Mark this section as processed
-            }
-
-            // Show or hide the navbar based on the section visible
-            if (sectionId !== 'main') {
-              document.querySelector('.navbar').style.display = 'flex';
-            } else {
-              document.querySelector('.navbar').style.display = 'none';
-            }
-          }
-        });
-      };
-
-      // Initialize the intersection observer
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-      // Observe each section for visibility
-      observer.observe(document.getElementById('about-me'));
-      observer.observe(document.getElementById('research'));
-      observer.observe(document.getElementById('publications'));
-      observer.observe(document.getElementById('teaching'));
-      observer.observe(document.getElementById('blog'));
-
-      // Add event listener to handle navbar links without jumping
-      const navbarLinks = document.querySelectorAll('.navbar a');
-      
-      navbarLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent default scroll behavior when clicking a link
-
-          const targetSection = document.querySelector(this.getAttribute('href'));
-          
-          // Manually scroll to the target section
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-
-          // Update the hash manually
-          window.location.hash = this.getAttribute('href');
-        });
-      });
-
-      // Add special behavior for the 'Main' link to immediately hide the navbar
-      const mainLink = document.querySelector('a[href="#main"]');
-      if (mainLink) {
-        mainLink.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent default action (e.g., page reload)
-          
-          // Immediately hide the navbar when 'Main' is clicked
-          document.querySelector('.navbar').style.display = 'none';
-          
-          // Update the URL hash to #main
-          window.location.hash = '#main';
-        });
-      }
+    // Intersection Observer to manage section visibility
+    const observerOptions = {
+      threshold: 0.5, // Trigger when 50% of the section is visible
     };
 
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
 
+          // Update navbar visibility based on section in view
+          updateNavbarVisibility(sectionId);
 
-    function toggleMenu() {
-      var links = document.getElementById("navbar-links");
-      links.classList.toggle("show");
-      console.log('Menu toggled!');
+          // Prevent URL hash update when scrolling
+          history.replaceState(null, "", window.location.pathname);
+        }
+      });
+    };
+
+    // Initialize the IntersectionObserver
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll("section").forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Smooth scroll behavior for navbar links
+    const navbarLinks = document.querySelectorAll(".navbar a");
+    navbarLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        const targetSection = document.querySelector(link.getAttribute("href"));
+
+        // Smoothly scroll to the section
+        targetSection.scrollIntoView({ behavior: "smooth" });
+
+        // Update URL hash manually without triggering scrolling behavior
+        history.replaceState(null, "", link.getAttribute("href"));
+      });
+    });
+
+    // Handle "Main" link to immediately hide the navbar
+    const mainLink = document.querySelector('a[href="#main"]');
+    if (mainLink) {
+      mainLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.querySelector(".navbar").style.display = "none";
+        history.replaceState(null, "", "#main");
+      });
     }
+  };
 
-    function addAnimation(sectionId) {
-      const section = document.getElementById(sectionId);
-      section.classList.add("fade-in");
-      setTimeout(() => section.classList.remove("fade-in"), 1000);
-    }
-  </script>
+  function toggleMenu() {
+    const links = document.getElementById("navbar-links");
+    links.classList.toggle("show");
+    console.log("Menu toggled!");
+  }
+
+  function addAnimation(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.classList.add("fade-in");
+    setTimeout(() => section.classList.remove("fade-in"), 1000);
+  }
+</script>
+
 
 </body>
 </html>
