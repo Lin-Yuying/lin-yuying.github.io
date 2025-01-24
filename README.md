@@ -17,21 +17,6 @@ Keep loving, keep living.
 
 
 
-To ordain conscience for Heaven and Earth,
-
-为天地立心，
-
-To secure life and fortune for the people,
-
-为生民请命，
-
-To continue lost teachings for past sages,
-
-为往圣继绝学，
-
-To establish peace for all future generations.
-
-为万世开太平。
 
 
 
