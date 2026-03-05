@@ -487,7 +487,7 @@
         const targetSection = document.querySelector(link.getAttribute("href"));
 
         // Smoothly scroll to the section
-        targetSection.scrollIntoView({ behavior: "smooth" });
+        targetSection.scrollIntoView({behavior: "smooth", block: "start"});
 
         // Update URL hash manually without triggering scrolling behavior
         history.replaceState(null, "", link.getAttribute("href"));
