@@ -64,8 +64,8 @@ section{
   height:26px;
 }
 
-/* mobile */
-@media (max-width:700px){
+/* Mobile layout */
+@media (max-width: 800px){
 
   .tagline{
     font-size:15px;
@@ -73,6 +73,19 @@ section{
 
   main{
     padding:30px 18px;
+  }
+
+  .image-gallery{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin-top: 20px;
+    gap: 15px;
   }
 
 }
